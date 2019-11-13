@@ -12,6 +12,11 @@ A wrapper howler for audio player.
 ## Documentation
 To view documentation or get support, visit [docs](https://yuda-lyu.github.io/w-howler/global.html).
 
+## Example
+To view some examples for more understanding, visit examples:
+
+> **all components:** [web](https://yuda-lyu.github.io/w-howler/examples/web.html) [[source code](https://github.com/yuda-lyu/w-howler/blob/master/docs/examples/web.html)]
+
 ## Installation
 ### In a browser(UMD module):
 > **Note:** umd file includes with `howler` and `lodash`, by using tree-shaking for dead-code elimination
@@ -22,7 +27,7 @@ To view documentation or get support, visit [docs](https://yuda-lyu.github.io/w-
 ```
 
 #### Example for audio play:
-> **Link:** [[dev source code](https://github.com/yuda-lyu/w-comor-socketio/blob/master/web.html)]
+> **Link:** [[dev source code](https://github.com/yuda-lyu/w-howler/blob/master/web.html)]
 ```alias
 <bdoy>
     <script>

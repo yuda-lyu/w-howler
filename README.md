@@ -15,7 +15,7 @@ To view documentation or get support, visit [docs](https://yuda-lyu.github.io/w-
 ## Example
 To view some examples for more understanding, visit examples:
 
-> **all components:** [web](https://yuda-lyu.github.io/w-howler/examples/web.html) [[source code](https://github.com/yuda-lyu/w-howler/blob/master/docs/examples/web.html)]
+> **audio play:** [web](https://yuda-lyu.github.io/w-howler/examples/web.html) [[source code](https://github.com/yuda-lyu/w-howler/blob/master/docs/examples/web.html)]
 
 ## Installation
 ### In a browser(UMD module):

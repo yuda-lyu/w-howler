@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw">
+
+    <head>
+        <meta http-equiv="content-type" content="text/html charset=UTF-8" />
+        <title>WHowler</title>
+
+        <script src="dist/w-howler.umd.js"></script>
+        <script>
+            let WHowler = window['w-howler']
+        </script>
+
+    </head>
+
+    <body style="padding:0; margin:0; font-family:'Microsoft JhengHei','Avenir','Helvetica';">
+
+        <div style="margin:20px; padding-bottom:10px;">
+            <div style="font-size:1.5rem; padding-bottom:5px;">1. Normal play</div>
+            <input type="file" onchange="whPlay1(this)">
+            <pre id="msg1"></pre>
+            <button onclick="whStop1()">stop</button>
+        </div>
+
+        <script>
+            let wh1 = new WHowler()
+
+            function whPlay1(ele){
+                let files=ele.files
+                let file=files[0]
+                let src=URL.createObjectURL(file)
+
+                //play
+                wh1.play(src)
+
+                //getSeek
+                setInterval(function(){
+                    document.querySelector('#msg1').innerHTML=JSON.stringify(wh1.getSeek())
+                },1000)
+
+            }
+
+            function whStop1(){
+                wh1.stop()
+            }
+
+        </script>
+
+        <div style="margin:20px; padding-bottom:10px;">
+            <div style="font-size:1.5rem; padding-bottom:5px;">2. Function play</div>
+            <input type="file" onchange="whPlay2(this)">
+            <pre id="msg2"></pre>
+            <button onclick="whStop2()">stop</button>
+        </div>
+
+        <script>
+            let wh2 = new WHowler()
+
+            function whPlay2(ele){
+                let files=ele.files
+                let file=files[0]
+                let src=URL.createObjectURL(file)
+
+                //play
+                wh2.play(src)
+
+                //getSeek
+                setInterval(function(){
+                    document.querySelector('#msg2').innerHTML=JSON.stringify(wh2.getSeek())
+                },1000)
+
+                //seek, 第6秒seek指定比例位置
+                setTimeout(function(){
+                    wh2.seek(0.5) //直接跳到歌曲一半處
+                },6000)
+
+                //pause, 第9秒pause
+                setTimeout(function(){
+                    wh2.pause()
+                },9000)
+
+                //resume, 第12秒resume
+                setTimeout(function(){
+                    wh2.resume()
+                },12000)
+
+            }
+
+            function whStop2(){
+                wh2.stop()
+            }
+
+        </script>
+        
+    </body>
+
+</html>

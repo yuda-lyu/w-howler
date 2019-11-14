@@ -11,7 +11,7 @@ import Mitt from 'mitt'
  *
  * See: {@link https://github.com/goldfire/howler.js/ Howler.js}
  *
- * @returns {Object} 回傳事件觸發器物件，包含seek、getSeek、pause、resume、stop、play、end，play輸入為網址與副檔名(預設mp3)，包含on與emit事件，on為註冊監聽事件，emit為觸發事件
+ * @returns {Object} 回傳事件觸發器物件，包含seek、getSeek、getState、pause、resume、stop、play、end，play輸入為網址與副檔名(預設mp3)，包含on與emit事件，on為註冊監聽事件，emit為觸發事件
  */
 function WHowler() {
     let adp = null
@@ -50,6 +50,15 @@ function WHowler() {
     }
     ev.getSeek = getSeek
 
+    function getState() {
+        let r = null
+        if (adp !== null) {
+            r = adp.state()
+        }
+        return r
+    }
+    ev.getState = getState
+
     function pause() {
         if (adp !== null) {
             try {
@@ -75,6 +84,7 @@ function WHowler() {
             try {
                 adp.stop()
                 adp.unload()
+                clearInterval(adp.timer)
             }
             catch (e) {}
             adp = null
@@ -90,50 +100,85 @@ function WHowler() {
         adpID = _adpID
 
         //play
-        adp = new Howl({
-            src,
-            format,
-        })
+        try {
+            adp = new Howl({
+                src,
+                format,
+            })
+        }
+        catch (e) {
+            err = e
+        }
+        if (err !== null) {
+            console.log('new Howl catch', err)
+            return
+        }
+
         try {
             adp.play()
         }
         catch (e) {
             err = e
         }
-
-        //check
         if (err !== null) {
             console.log('play catch', err)
             return
         }
 
-        //check no stop adp and push now adp
+        //refresh
+        adp.timer = setInterval(() => {
+            //console.log('timer refresh', adp.timer)
+            emitRefresh()
+        }, 50)
+
+        //check no stop adp
         each(adps, (v) => {
             if (v.state() === 'loading') {
                 v.on('load', function() {
-                    v.stop()
-                    v.unload()
+                    setTimeout(() => {
+                        v.stop()
+                        v.unload()
+                        clearInterval(v.timer)
+                    }, 1)
                 })
             }
             else {
                 v.stop()
                 v.unload()
+                clearInterval(v.timer)
             }
         })
-        adps.push(adp)
 
-        //onEnd
+        //loaderror
+        adp.on('loaderror', function() {
+            ev.emit('error', 'loaderror')
+            stop()
+        })
+
+        //playerror
+        adp.on('playerror', function() {
+            ev.emit('error', 'playerror')
+            stop()
+        })
+
+        //end
         adp.on('end', function() {
             if (adpID === _adpID) { //有可能剛好播放結束又指定切換導致重複播放
                 ev.emit('end', adpID)
             }
         })
 
-        //clear, 5秒後清除已載入且不是播放中的adp
+        //push self
+        adps.push(adp)
+
+        //clear, 5秒後清除
         setTimeout(() => {
             let _adps = []
             each(adps, (v) => {
-                if (!(v.state() === 'loaded' && !v.playing())) {
+                if (!(v.state() === 'loaded' && !v.playing())) { //保留已載入但不是播放中的adp
+                    _adps.push(v)
+                }
+                else if (v.playing()) { //保留播放中的adp
                     _adps.push(v)
                 }
             })
@@ -171,10 +216,6 @@ function WHowler() {
             }
         }, 1)
     }
-
-    setInterval(() => {
-        emitRefresh()
-    }, 50)
 
     return ev
 }

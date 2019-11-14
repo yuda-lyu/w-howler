@@ -19,11 +19,13 @@ To view some examples for more understanding, visit examples:
 
 ## Installation
 ### In a browser(UMD module):
-> **Note:** umd file includes with `howler` and `lodash`, by using tree-shaking for dead-code elimination
+> **Note:** w-howler does't depend on any package, has included `howler`.
+
+> **Note:** umd file includes with `lodash`, by using tree-shaking for dead-code elimination
 
 [Necessary] Add script for w-howler.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-howler@1.0.1/dist/w-howler.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-howler@1.0.2/dist/w-howler.umd.js"></script>
 ```
 
 #### Example for audio play:

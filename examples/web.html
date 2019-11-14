@@ -5,7 +5,7 @@
         <meta http-equiv="content-type" content="text/html charset=UTF-8" />
         <title>WHowler</title>
 
-        <script src="https://cdn.jsdelivr.net/npm/w-howler@1.0.2/dist/w-howler.umd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/w-howler@1.0.3/dist/w-howler.umd.js"></script>
         <script>
             let WHowler = window['w-howler']
         </script>
@@ -22,25 +22,48 @@
         </div>
 
         <script>
-            let wh1 = new WHowler()
+            let wh1=null
 
             function whPlay1(ele){
-                let files=ele.files
-                let file=files[0]
-                let src=URL.createObjectURL(file)
+                let src
+                try{
+                    let files=ele.files
+                    let file=files[0]
+                    src=URL.createObjectURL(file)
+                }
+                catch (e) {
+                    return
+                }
+
+                if(wh1!==null){
+                    alert('playing')
+                    return
+                }
 
                 //play
+                wh1 = new WHowler()
                 wh1.play(src)
 
                 //getSeek
-                setInterval(function(){
+                wh1.timer=setInterval(function(){
                     document.querySelector('#msg1').innerHTML=JSON.stringify(wh1.getSeek())
                 },1000)
+
+                //error
+                wh1.on('error',function(err){
+                    alert(err)
+                    whStop1()
+                })
 
             }
 
             function whStop1(){
-                wh1.stop()
+                try{
+                    wh1.stop()
+                    clearInterval(wh1.timer)
+                }catch(e){}
+                wh1=null
+                document.querySelector('#msg1').innerHTML=''
             }
 
         </script>
@@ -53,18 +76,30 @@
         </div>
 
         <script>
-            let wh2 = new WHowler()
+            let wh2=null
 
             function whPlay2(ele){
-                let files=ele.files
-                let file=files[0]
-                let src=URL.createObjectURL(file)
+                let src
+                try{
+                    let files=ele.files
+                    let file=files[0]
+                    src=URL.createObjectURL(file)
+                }
+                catch (e) {
+                    return
+                }
+
+                if(wh2!==null){
+                    alert('playing')
+                    return
+                }
 
                 //play
+                wh2 = new WHowler()
                 wh2.play(src)
 
                 //getSeek
-                setInterval(function(){
+                wh2.timer=setInterval(function(){
                     document.querySelector('#msg2').innerHTML=JSON.stringify(wh2.getSeek())
                 },1000)
 
@@ -83,10 +118,21 @@
                     wh2.resume()
                 },12000)
 
+                //error
+                wh2.on('error',function(err){
+                    alert(err)
+                    whStop2()
+                })
+
             }
 
             function whStop2(){
-                wh2.stop()
+                try{
+                    wh2.stop()
+                    clearInterval(wh2.timer)
+                }catch(e){}
+                wh2=null
+                document.querySelector('#msg2').innerHTML=''
             }
 
         </script>

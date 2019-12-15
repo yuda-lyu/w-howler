@@ -168,7 +168,7 @@ function WHowler() {
             }
         })
 
-        //push self
+        //push self, 若直接於play時先stop與unload adp, 會因為可能按超快導致adp還在loading, 此時可能無法順利完成stop與unload, 故只好用queue先存後停止與釋放
         adps.push(adp)
 
         //clear, 5秒後清除

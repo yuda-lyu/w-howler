@@ -1,9 +1,9 @@
+import { Howl } from 'howler'
+import EventEmitter from 'eventemitter3'
 import toString from 'lodash/toString'
 import isNumber from 'lodash/isNumber'
 import each from 'lodash/each'
 import uniqueId from 'lodash/uniqueId'
-import { Howl } from 'howler'
-import Mitt from 'mitt'
 
 
 /**
@@ -19,7 +19,7 @@ function WHowler() {
     let adpID = null
 
     //ev
-    let ev = new Mitt()
+    let ev = new EventEmitter()
 
     function seek(r) {
         if (adp !== null) {

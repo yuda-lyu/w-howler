@@ -19,13 +19,13 @@ To view some examples for more understanding, visit examples:
 
 ## Installation
 ### In a browser(UMD module):
-> **Note:** w-howler does't depend on any package, has included `howler`.
+> **Note:** w-howler does't depend on any package, has included `howler` and `eventemitter3`.
 
 > **Note:** umd file includes with `lodash`, by using tree-shaking for dead-code elimination
 
 [Necessary] Add script for w-howler.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-howler@1.0.5/dist/w-howler.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-howler@1.0.6/dist/w-howler.umd.js"></script>
 ```
 
 #### Example for audio play:

@@ -19,19 +19,19 @@ To view some examples for more understanding, visit examples:
 
 ## Installation
 ### In a browser(UMD module):
-> **Note:** w-howler does't depend on any package, has included `howler` and `eventemitter3`.
+> **Note:** w-howler is not dependent on any package, has included `howler` and `eventemitter3`.
 
-> **Note:** umd file includes with `lodash`, by using tree-shaking for dead-code elimination
+> **Note:** umd file includes with `lodash`, by using tree-shaking for dead-code elimination.
 
 [Necessary] Add script for w-howler.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-howler@1.0.9/dist/w-howler.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-howler@1.0.10/dist/w-howler.umd.js"></script>
 ```
 
 #### Example for audio play:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-howler/blob/master/web.html)]
 ```alias
-<bdoy>
+<body>
     <script>
         let WHowler = window['w-howler']
     </script>
@@ -113,5 +113,5 @@ To view some examples for more understanding, visit examples:
 
     </script>
 
-</bdoy>
+</body>
 ```

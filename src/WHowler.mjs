@@ -111,7 +111,9 @@ function WHowler() {
             adpTar.stop()
             adpTar.unload()
         }
-        catch (e) {}
+        catch (e) {
+            // console.log('stopForce', e)
+        }
     }
 
     function stopTar(adpTar) {
@@ -170,14 +172,14 @@ function WHowler() {
         }, 50)
 
         //loaderror
-        adp.on('loaderror', function(err) {
-            emitError({ from: 'loaderror', err })
+        adp.on('loaderror', function() {
+            emitError('loaderror')
             stop()
         })
 
         //playerror
-        adp.on('playerror', function(err) {
-            emitError({ from: 'playerror', err })
+        adp.on('playerror', function() {
+            emitError('playerror')
             stop()
         })
 

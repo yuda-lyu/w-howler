@@ -34,12 +34,9 @@
                 catch (e) {
                     return
                 }
-
-                if(wh1!==null){
-                    alert('playing')
-                    return
-                }
-
+          
+                whStop1()
+          
                 //play
                 wh1 = new WHowler()
                 wh1.play(src)
@@ -51,7 +48,12 @@
 
                 //error
                 wh1.on('error',function(err){
-                    alert(err)
+                    console.log(err)
+                    whStop1()
+                })
+
+                //end
+                wh1.on('end',function(){
                     whStop1()
                 })
 
@@ -61,7 +63,10 @@
                 try{
                     wh1.stop()
                     clearInterval(wh1.timer)
-                }catch(e){}
+                }
+                catch(e){
+                    // console.log(e)
+                }
                 wh1=null
                 document.querySelector('#msg1').innerHTML=''
             }
@@ -77,6 +82,7 @@
 
         <script>
             let wh2=null
+            let n=0
 
             function whPlay2(ele){
                 let src
@@ -89,12 +95,12 @@
                     return
                 }
 
-                if(wh2!==null){
-                    alert('playing')
-                    return
-                }
+                //whStop2
+                whStop2()
 
                 //play
+                n++
+                let id=n
                 wh2 = new WHowler()
                 wh2.play(src)
 
@@ -105,22 +111,45 @@
 
                 //seek, 第6秒seek指定比例位置
                 setTimeout(function(){
-                    wh2.seek(0.5) //直接跳到歌曲一半處
+                    if(id!==n){
+                        return
+                    }
+                    try{
+                        console.log('wh2.seek(0.5)')
+                        wh2.seek(0.5) //直接跳到歌曲一半處
+                    }catch(e){}
                 },6000)
 
                 //pause, 第9秒pause
                 setTimeout(function(){
-                    wh2.pause()
+                    if(id!==n){
+                        return
+                    }
+                    try{
+                        console.log('wh2.pause')
+                        wh2.pause()
+                    }catch(e){}
                 },9000)
 
                 //resume, 第12秒resume
                 setTimeout(function(){
-                    wh2.resume()
+                    if(id!==n){
+                        return
+                    }
+                    try{
+                        console.log('wh2.resume')
+                        wh2.resume()
+                    }catch(e){}
                 },12000)
 
                 //error
                 wh2.on('error',function(err){
-                    alert(err)
+                    console.log(err)
+                    whStop2()
+                })
+
+                //end
+                wh2.on('end',function(){
                     whStop2()
                 })
 
@@ -130,7 +159,10 @@
                 try{
                     wh2.stop()
                     clearInterval(wh2.timer)
-                }catch(e){}
+                }
+                catch(e){
+                    // console.log(e)
+                }
                 wh2=null
                 document.querySelector('#msg2').innerHTML=''
             }

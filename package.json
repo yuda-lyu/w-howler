@@ -1,6 +1,6 @@
 {
   "name": "w-howler",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A wrapper howler for audio player.",
   "main": "dist/w-howler.umd.js",
   "dependencies": {

@@ -25,13 +25,14 @@ To view some examples for more understanding, visit examples:
 
 [Necessary] Add script for w-howler.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-howler@1.0.10/dist/w-howler.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-howler@1.0.11/dist/w-howler.umd.js"></script>
 ```
 
 #### Example for audio play:
 > **Link:** [[dev source code](https://github.com/yuda-lyu/w-howler/blob/master/web.html)]
 ```alias
 <body>
+
     <script>
         let WHowler = window['w-howler']
     </script>

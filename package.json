@@ -12,7 +12,7 @@
     "w-package-tools": "^1.0.40"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha --require @babel/register",
+    "test": "mocha --parallel --timeout 60000 --experimental-modules --es-module-specifier-resolution=node",
     "deploy": "gh-pages -d docs"
   },
   "repository": {

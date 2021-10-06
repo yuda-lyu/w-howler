@@ -3,7 +3,6 @@ A wrapper howler for audio player.
 
 ![language](https://img.shields.io/badge/language-JavaScript-orange.svg) 
 [![npm version](http://img.shields.io/npm/v/w-howler.svg?style=flat)](https://npmjs.org/package/w-howler) 
-[![Build Status](https://travis-ci.org/yuda-lyu/w-howler.svg?branch=master)](https://travis-ci.org/yuda-lyu/w-howler) 
 [![license](https://img.shields.io/npm/l/w-howler.svg?style=flat)](https://npmjs.org/package/w-howler) 
 [![gzip file size](http://img.badgesize.io/yuda-lyu/w-howler/master/dist/w-howler.umd.js.svg?compression=gzip)](https://github.com/yuda-lyu/w-howler)
 [![npm download](https://img.shields.io/npm/dt/w-howler.svg)](https://npmjs.org/package/w-howler) 

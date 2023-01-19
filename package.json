@@ -1,7 +1,6 @@
 {
   "name": "w-howler",
-  "version": "1.0.16",
-  "description": "A wrapper howler for audio player.",
+  "version": "1.0.17",
   "main": "dist/w-howler.umd.js",
   "dependencies": {
     "eventemitter3": "^4.0.7",
@@ -9,7 +8,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "w-package-tools": "^1.0.65"
+    "w-package-tools": "^1.0.66"
   },
   "scripts": {
     "test": "mocha --parallel --timeout 60000 --experimental-modules --es-module-specifier-resolution=node",
@@ -22,15 +21,11 @@
   "keywords": [
     "package",
     "tool",
-    "operator",
-    "queues",
-    "nodejs",
+    "howler",
+    "audio",
+    "player",
     "browser"
   ],
   "author": "yuda-lyu(semisphere)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/yuda-lyu/w-howler/issues"
-  },
-  "homepage": "https://github.com/yuda-lyu/w-howler#readme"
+  "license": "MIT"
 }

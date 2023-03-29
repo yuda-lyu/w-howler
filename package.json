@@ -1,14 +1,14 @@
 {
   "name": "w-howler",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "main": "dist/w-howler.umd.js",
   "dependencies": {
-    "eventemitter3": "^4.0.7",
+    "eventemitter3": "^5.0.0",
     "howler": "^2.2.3",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "w-package-tools": "^1.0.66"
+    "w-package-tools": "^1.0.68"
   },
   "scripts": {
     "test": "mocha --parallel --timeout 60000 --experimental-modules --es-module-specifier-resolution=node",

@@ -139,6 +139,8 @@ function WHowler() {
 
     function play(src, format = 'mp3') {
 
+        //src可為url或base64格式(可通過blob2b64取得)
+
         //check
         if (adp !== null) {
             let adpTar = adp

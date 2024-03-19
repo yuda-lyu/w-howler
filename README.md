@@ -21,11 +21,11 @@ To view some examples for more understanding, visit examples:
 ### In a browser(UMD module):
 > **Note:** w-howler is not dependent on any package, has included `howler` and `eventemitter3`.
 
-> **Note:** umd file includes with `lodash`, by using tree-shaking for dead-code elimination.
+> **Note:** umd file includes with `lodash-es`, by using tree-shaking for dead-code elimination.
 
 [Necessary] Add script for w-howler.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-howler@1.0.20/dist/w-howler.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-howler@1.0.21/dist/w-howler.umd.js"></script>
 ```
 
 #### Example for audio play:

@@ -1,7 +1,7 @@
 import hw from 'howler'
 import EventEmitter from 'eventemitter3'
-import toString from 'lodash/toString'
-import isNumber from 'lodash/isNumber'
+import toString from 'lodash-es/toString'
+import isNumber from 'lodash-es/isNumber'
 
 
 let Howl = hw.Howl

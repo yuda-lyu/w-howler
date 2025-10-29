@@ -4,7 +4,6 @@ A wrapper howler for audio player.
 ![language](https://img.shields.io/badge/language-JavaScript-orange.svg) 
 [![npm version](http://img.shields.io/npm/v/w-howler.svg?style=flat)](https://npmjs.org/package/w-howler) 
 [![license](https://img.shields.io/npm/l/w-howler.svg?style=flat)](https://npmjs.org/package/w-howler) 
-[![gzip file size](http://img.badgesize.io/yuda-lyu/w-howler/master/dist/w-howler.umd.js.svg?compression=gzip)](https://github.com/yuda-lyu/w-howler)
 [![npm download](https://img.shields.io/npm/dt/w-howler.svg)](https://npmjs.org/package/w-howler) 
 [![npm download](https://img.shields.io/npm/dm/w-howler.svg)](https://npmjs.org/package/w-howler)
 [![jsdelivr download](https://img.shields.io/jsdelivr/npm/hm/w-howler.svg)](https://www.jsdelivr.com/package/npm/w-howler)
@@ -18,12 +17,10 @@ To view some examples for more understanding, visit examples:
 > **audio play:** [web](https://yuda-lyu.github.io/w-howler/examples/web.html) [[source code](https://github.com/yuda-lyu/w-howler/blob/master/docs/examples/web.html)]
 
 ## Installation
+
 ### In a browser(UMD module):
-> **Note:** w-howler is not dependent on any package, has included `howler` and `eventemitter3`.
 
-> **Note:** umd file includes with `lodash-es`, by using tree-shaking for dead-code elimination.
-
-[Necessary] Add script for w-howler.
+Add script for w-howler.
 ```alias
 <script src="https://cdn.jsdelivr.net/npm/w-howler@1.0.22/dist/w-howler.umd.js"></script>
 ```

@@ -22,7 +22,7 @@ To view some examples for more understanding, visit examples:
 
 Add script for w-howler.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-howler@1.0.26/dist/w-howler.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-howler@1.0.27/dist/w-howler.umd.js"></script>
 ```
 
 #### Example for audio play:
